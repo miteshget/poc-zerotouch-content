@@ -23,7 +23,7 @@
   vars:
     aap_hostname: localhost
     aap_username: admin
-    aap_password: ansible123!
+    aap_password: "{{ lookup('ansible.builtin.env', 'BASTION_PASSWORD') }}"
     aap_validate_certs: false
   tasks:
     - name: Get job templates from Automation Controller
@@ -45,7 +45,6 @@
         template_names: "{{ job_templates.json.results | map(attribute='name') | list }}"
 
     - name: Fail template Network Automation - Backup is not found
-      fail:
-        msg: "Job template 'Network Automation - Backup' does not exist in Automation Controller!"
-      when: "'Network Automation - Backup' not in template_names"
-
+      validation_check:
+        error_msg: "Job template 'Network Automation - Backup' does not exist in Automation Controller!"
+        check: "'Network Automation - Backup' in template_names"
