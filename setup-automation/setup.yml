@@ -258,7 +258,6 @@
           cisco ansible_connection=network_cli ansible_network_os=ios ansible_become=true ansible_user=admin ansible_password=ansible123!
           vscode ansible_user=rhel ansible_password=ansible123!
         dest: /home/rhel/hosts
-        state: present
         owner: rhel
 
     - name: Setup ansible.cfg
@@ -280,7 +279,6 @@
           connect_timeout = 200
           command_timeout = 200
         dest: /home/rhel/ansible.cfg
-        state: present
         owner: rhel
 
     - name: Create directory
@@ -301,7 +299,6 @@
             StrictHostKeyChecking no
             User ansible
         dest: /home/rhel/.ssh/config
-        state: present
         owner: rhel
 
     - name: Run loginctl command
