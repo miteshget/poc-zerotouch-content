@@ -1,0 +1,33 @@
+---
+antora:
+  name: modules
+  dir: www
+  modules:
+    - name: index
+      label: "Introduction"
+      solveButton: false
+    - name: module-01
+      label: "create-network-backup-job"
+      solveButton: true
+    - name: module-02
+      label: "backup-job"
+      solveButton: true
+    - name: module-03
+      label: "restore-network-automation"
+      solveButton: true
+
+tabs:
+  - name: "Automation controller WebUI"
+    url: https://controller-${guid}.${domain}/
+    external: false
+    modules:
+      - index
+      - module-01
+      - module-02
+      - module-03
+  - name: "Visual Studio Code"
+    url: https://vscode-${guid}.${domain}/?folder=/home/rhel
+    external: false
+    modules:
+      - module-02
+      - module-03
