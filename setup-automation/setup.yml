@@ -156,6 +156,7 @@
   hosts: vscode
   tasks:
     - name: Stop the services
+      become: true
       ansible.builtin.service:
         name: "{{ item }}"
         state: stopped
@@ -221,6 +222,12 @@
         dest: /home/rhel/.local/share/code-server/User/settings.json
         state: present
         owner: rhel
+
+    - name: Start code-server
+      become: true
+      ansible.builtin.service:
+        name: code-server
+        state: stopped
 
     - name: Create ansible navigator file
       ansible.builtin.copy:
