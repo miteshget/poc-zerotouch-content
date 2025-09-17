@@ -177,7 +177,6 @@
           cert: false
           disable-update-check: true
         dest: /home/rhel/.config/code-server/config.yaml
-        state: present
         owner: rhel
 
     - name: Codeserver settings
@@ -220,7 +219,6 @@
             "python.useEnvironmentsExtension": false
           }
         dest: /home/rhel/.local/share/code-server/User/settings.json
-        state: present
         owner: rhel
 
     - name: Start code-server
