@@ -215,7 +215,7 @@
             "ansible.validation.lint.enabled": false,
             "ansible.validation.enabled": false,
             "ansible.lightspeed.enabled": false,
-            "ansible.lightspeed.suggestions.enabled": false
+            "ansible.lightspeed.suggestions.enabled": false,
             "python.useEnvironmentsExtension": false
           }
         dest: /home/rhel/.local/share/code-server/User/settings.json
