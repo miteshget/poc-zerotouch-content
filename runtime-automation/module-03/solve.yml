@@ -26,6 +26,15 @@
     aap_password: "{{ lookup('ansible.builtin.env', 'BASTION_PASSWORD') }}"
     aap_validate_certs: false
   tasks:
+    - name: Create Launch Network Automation - Restore job template
+      ansible.controller.job_template:
+        name: "Network Automation - Restore"
+        state: "absent"
+        controller_username: "{{ aap_username }}"
+        controller_password: "{{ aap_password }}"
+        controller_host: "https://{{ aap_hostname }}"
+        validate_certs: "{{ aap_validate_certs }}" 
+
     - name: Find backups
       ansible.builtin.find:
         paths: /backup
