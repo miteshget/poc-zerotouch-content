@@ -1,6 +1,6 @@
 {
-  "name": "Restore Survey",
-  "description": "Choose which date you want to restore to",
+  "name": "",
+  "description": "",
   "spec": [
     {
       "question_name": "Rollback to which date?",
@@ -10,8 +10,11 @@
       "variable": "rollback_date",
       "min": 0,
       "max": 1024,
-      "default": "{{backups.files[0].path.split('/')[-1]}}",
-      "choices": "{%- for file in backups.files -%}{%if loop.last %}{{file.path.split('/')[-1]}}{%else%}{{file.path.split('/')[-1]}}\n{%endif%}{%endfor%}",
+      "default": "2025-09-18-04-31",
+      "choices": [ 
+        "2025-09-18-04-31",
+        "2025-09-18-04-32"
+        ],
       "new_question": true
     }
   ]
