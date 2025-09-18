@@ -45,6 +45,10 @@
       delegate_to: vscode
       delegate_facts: true
 
+    - template:
+        src: "{{ playbook_dir }}/survey-backup.j2"
+        dest: /tmp/test
+        
     - name: Create Launch Network Automation - Restore job template
       ansible.controller.job_template:
         name: "Network Automation - Restore"
