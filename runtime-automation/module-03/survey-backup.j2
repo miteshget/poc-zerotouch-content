@@ -11,15 +11,10 @@
       "min": 0,
       "max": 1024,
       "default": "{{backups.files[0].path.split('/')[-1]}}",
-      "choices": [
-{% for file in backups.files %}
-{% if loop.last %}
-        "{{file.path.split('/')[-1]}}"
-{% else %}
-        "{{file.path.split('/')[-1]}}",
-{% endif %}
-{% endfor %}
-      ],
+      "choices": "{% for file in backups.files %}{% if loop.last %}
+        {{file.path.split('/')[-1]}}
+        {% else %}{{file.path.split('/')[-1]}}\n
+        {% endif %}{% endfor %}",
       "new_question": true
     }
   ]
